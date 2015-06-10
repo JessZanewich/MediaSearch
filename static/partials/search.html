@@ -1,0 +1,63 @@
+<!--<div class="container" id="search" ng-controller="SearchCtrl">
+	<div class="row">
+		<div class="input-group search-bar" ng-model="find" ng-change="change()">
+			<input type="text" class="form-control" placeholder="Enter Movie or TV Show" />
+			<button></button>
+		</div>
+	</div>
+
+	<div class="container">
+		{{data}}
+	</div>
+</div>-->
+<div class='container' ng-controller="SearchCtrl">
+	<div class="input-group search-bar">
+		<input type="text" ng-model="search">
+		<button ng-click="change()">Search</button>
+	</div>
+
+	<div ng-if="!information">
+		Retrieving information...
+	</div>
+
+	<div ng-if="information.Response === 'True'">
+		<!--<ul ng-repeat="item in search.Search track by $index">
+			<li>{{item.Title}} ({{item.Year}})</li>
+		</ul>
+		<img ng-src="{{information.Poster}}">-->
+
+		<!--<div class="dropdown">
+		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+		    Dropdown
+		    <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" ng-repeat="item in search.Search track by $index">
+		    <li role="presentation"><{{item.Title}} ({{item.Year}})</li>
+		  </ul>
+		</div>-->
+
+		<div class="menu-wrap">
+			<nav class="menu">
+				<ul class="clearfix">
+					<li>
+						<ul ng-repeat="item in search.Search track by $index">
+							<li><a ng-href="" ng-click="change()">{{item.Title}} ({{item.Year}})</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<img ng-src="{{information.Poster}}">
+		
+	</div>
+
+	<!--<div class="dropdown">
+	  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+	    Dropdown
+	    <span class="caret"></span>
+	  </button>
+	  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" ng-repeat="item in search.Search track by $index">
+	    <li role="presentation"><{{item.Title}} ({{item.Year}})</li>
+	  </ul>
+	</div>-->
+</div>
