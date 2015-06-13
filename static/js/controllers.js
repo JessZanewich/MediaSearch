@@ -4,16 +4,17 @@ angular.module("MediaSearchControllers", [])
 	
 
 	if($scope.search === undefined) {
-		$scope.search = "";
-		fetch();
+		$scope.search = "Sherlock Holmes";
+		media();
 	}
 
 	var search_term;
 	$scope.change = function() {
-		if(search_term) {
+		media();
+		/*if(search_term) {
 			clearTimeout(search_term); //User has continued typing
 		}
-		search_term = setTimeout(fetch, 800);//User has stopped typing for 800miliseconds, so search begins
+		search_term = setTimeout(fetch, 800);*///User has stopped typing for 800miliseconds, so search begins
 	}
 
 	//Choosing from dropdown
@@ -27,7 +28,7 @@ angular.module("MediaSearchControllers", [])
 		};
 	}*/
 
-	function fetch() {
+	function media() {
 		//Search based on 'http://www.omdbapi.com/' specifications
 		$http.get("http://www.omdbapi.com/?t=" + $scope.search + "&tomatoes=true&plot=full").
 		success(function(data) {
@@ -36,6 +37,7 @@ angular.module("MediaSearchControllers", [])
 		$http.get("http://www.omdbapi.com/?s=" + $scope.search).
 		success(function(data) {
 			$scope.related = data;
+			console.log(data);
 		});
 	}
 

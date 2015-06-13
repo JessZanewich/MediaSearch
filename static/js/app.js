@@ -6,15 +6,12 @@ angular.module('MediaSearchApp', ['ngRoute', 'MediaSearchControllers'])
 		function($routeProvider) {
 			$routeProvider.
 				when('/', {
-					templateUrl: '../static/partials/home.html'
+					templateUrl: '../static/partials/home.html',
+					controller: "NewsCtrl"
 				}).
 				when('/search', {
 					templateUrl: '../static/partials/search.html',
 					controller: "SearchCtrl"
-				}).
-				when('/news', {
-					templateUrl: '/static/partials/news.html',
-					controller: "NewsCtrl"
 				}).
 				otherwise({
 					redirectTo: '/'
