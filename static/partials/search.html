@@ -1,28 +1,33 @@
 
 <div class='container' ng-controller="SearchCtrl">
-	<div class="input-group-addon search-bar">
-		<input type="text" ng-model="search" ng-keypress="change()" placeholder="Enter a movie or TV show" />
+
+	<div class="container">
+		<div class="row top-space">
+				<input type="text" ng-model="search" ng-keypress="change()" placeholder="Enter a movie or TV show" />
+		</div>
 	</div>
 
 	<div ng-if="!details">
 		Retrieving information...
 	</div>
 	
-	<div id="main-info"></div>
-	
-	<div ng-if="details.Response === 'True'">
-		<span class="span-outer">
-    		<a href="http://imdb.com/title/{{ details.imdbID }}" target="_blank">{{ details.Title }}</a>
-  		</span> ({{ details.Year }}) <br />
-
-  		<img ng-src="{{details.Poster}}" id="poster">
-	<p>
-		<b>Director:</b> {{details.Director}} <br />
-		<b>Starring:</b> {{details.Actors}} <br />
-		<b>IMDB Rating:</b> {{details.imdbRating}} <br />
-		<b>Description:</b> {{details.Plot}} <br />
-		<b>Related: </b> <div ng-repeat="item in related"> {{Title}} </div>
-	</p>	
+	<div class="container" ng-if="details.Response === 'True'">
+		<div class="row">
+			<div class="col-md-4">
+		  		<img ng-src="{{details.Poster}}" id="poster">
+		  	</div>
+			<div class="col-md-8">
+				<span class="span-outer">
+		    		<a href="http://imdb.com/title/{{ details.imdbID }}" target="_blank">{{ details.Title }}</a>
+		  		</span> ({{ details.Year }}) <br />
+				<b>Director:</b> {{details.Director}} <br />
+				<b>Starring:</b> {{details.Actors}} <br />
+				<b>IMDB Rating:</b> {{details.imdbRating}} <br /> 
+				<b>Rotten Tomatoes:</b> {{details.tomatoMeter}} <br /> <br /> <br />
+				<b>Description:</b> {{details.Plot}} <br />
+				<b>Related: </b> <div ng-repeat="item in related"> {{Title}} </div>
+			</div>
+		</div>	
 	</div>
 
 

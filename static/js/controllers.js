@@ -4,17 +4,17 @@ angular.module("MediaSearchControllers", [])
 	
 
 	if($scope.search === undefined) {
-		$scope.search = "Sherlock Holmes";
+		$scope.search = "Hunger Games";
 		media();
 	}
 
 	var search_term;
 	$scope.change = function() {
-		media();
-		/*if(search_term) {
+		//media();
+		if(search_term) {
 			clearTimeout(search_term); //User has continued typing
 		}
-		search_term = setTimeout(fetch, 800);*///User has stopped typing for 800miliseconds, so search begins
+		search_term = setTimeout(media, 800);//User has stopped typing for 800miliseconds, so search begins
 	}
 
 	//Choosing from dropdown
