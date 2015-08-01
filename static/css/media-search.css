@@ -18,11 +18,16 @@ body {
 	background: #75A3A3;
 }
 input {
-	width: 400px;
+	width: 350px;
 }
 
 .input-group-addon {
-	width: 400px;
+	width: 500px;
+	position: relative;
+	padding: 10px 10px 10px 10px;
+}
+.top-space {
+	margin-bottom: 20px;
 }
 
 .clearfix:after {
